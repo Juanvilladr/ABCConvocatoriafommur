@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Invitación Convocatoria FOMMUR</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
+            background-color: #f3e8ff;
+
+        }
+
+    </style>
+
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-sm mx-auto">
+
+        <!-- Esta es el área que se va a descargar como imagen -->
+
+        <div id="capture-card" class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+
+            <div class="p-5">
+
+                <div class="text-center mb-4">
+
+                    <h1 class="text-2xl font-black text-purple-800">Invitación del Colectivo Siembra</h1>
+
+                    <p class="text-sm text-gray-500">Convocatoria FOMMUR</p>
+
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1599395359322-caste-of-women-in-field-with-baskets-on-their-heads?q=80&w=870&auto=format&fit=crop" alt="Mujeres rurales trabajando en el campo" class="rounded-xl w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a78bfa/ffffff?text=Mujer+Rural'">
+
+                
+
+                <div class="mt-5 space-y-3">
+
+                    <div class="flex items-start gap-3 bg-purple-50 p-3 rounded-lg">
+
+                        <span class="text-xl">💰</span>
+
+                        <p class="text-gray-700 text-sm">Recibe un apoyo de hasta <strong>6,5 salarios mínimos</strong> para tu proyecto.</p>
+
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-purple-50 p-3 rounded-lg">
+
+                        <span class="text-xl">✅</span>
+
+                        <p class="text-gray-700 text-sm">Para mujeres rurales con un negocio, una idea o que hayan sufrido pérdidas.</p>
+
+                    </div>
+
+                    <div class="flex items-start gap-3 bg-purple-50 p-3 rounded-lg">
+
+                        <span class="text-xl">🗓️</span>
+
+                        <p class="text-gray-700 text-sm"><strong>Fecha límite para postularse:</strong> 22 de Julio de 2025.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+
+        <!-- El botón de descarga ahora está fuera de la tarjeta -->
+
+        <div class="mt-6">
+
+            <button id="download-btn" class="block w-full bg-purple-600 text-white text-center font-bold py-3 rounded-lg hover:bg-purple-700 transition-transform transform hover:scale-105">
+
+                Descargar Invitación (Imagen)
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        document.getElementById('download-btn').addEventListener('click', function() {
+
+            const cardElement = document.getElementById('capture-card');
+
+            
+
+            // Usamos html2canvas para tomar una "foto" de la tarjeta
+
+            html2canvas(cardElement, {
+
+                useCORS: true, // Necesario para imágenes de otras fuentes
+
+                scale: 2 // Aumenta la resolución de la imagen
+
+            }).then(canvas => {
+
+                // Creamos un enlace temporal para descargar la imagen
+
+                const link = document.createElement('a');
+
+                link.download = 'Invitacion_FOMMUR.png';
+
+                link.href = canvas.toDataURL('image/png');
+
+                link.click();
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
